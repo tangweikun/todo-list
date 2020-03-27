@@ -104,21 +104,39 @@ function App() {
   console.log(todos, doneIds);
 
   return (
-    <div className="App">
+    <div className="container">
+      <div className="title">Demo</div>
       <div>
         {todos.map(item => (
-          <div key={item.id}>
+          <div key={item.id} className="row">
             <span
+              role="img"
+              aria-label="checked"
               onClick={() =>
                 doneIds.has(item.id)
                   ? _handleUndo(item.id)
                   : _handleDone(item.id)
               }
             >
+              ✔️
+            </span>
+            <span
+              style={{
+                marginLeft: "6px",
+                color: doneIds.has(item.id) ? "red" : "green",
+                textDecoration: doneIds.has(item.id) ? "line-through" : "unset"
+              }}
+            >
               {item.title}
             </span>
-            <span>{doneIds.has(item.id) ? "A" : "B"}</span>
-            <span onClick={() => _handleDelete(item.id)}>X</span>
+            <span style={{ flexGrow: 1 }}></span>
+            <span
+              onClick={() => _handleDelete(item.id)}
+              role="img"
+              aria-label="close"
+            >
+              ❌
+            </span>
           </div>
         ))}
       </div>
