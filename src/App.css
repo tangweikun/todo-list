@@ -14,5 +14,21 @@
   align-items: center;
   background: #fff;
   margin-bottom: 20px;
-  text-decoration: 
+}
+
+.loading {
+  font-size: 36px;
+  width: 80px;
+  height: 80px;
+  margin: 200px auto 0;
+  animation: spin infinite 2s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
